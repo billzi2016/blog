@@ -20,12 +20,14 @@
 - [x] 创建中文提交
 - [x] 推送到 GitHub 公开仓库
 - [x] 使用 GitHub Actions 成功部署 GitHub Pages
+- [x] 设置 `baseURL` 为 GitHub Pages 地址
+- [x] 通过 GitHub Actions 验证 PaperMod 构建和部署
+- [x] 沿用当前站点名称 `我的博客` 和作者名 `bizi`
+- [x] 当前 README、`hugo.toml` 和 GitHub 仓库描述已保持一致
 
 ## Next
 
-- [ ] 确认站点正式名称、作者名和 `baseURL`
-- [ ] 安装 Hugo 后本地运行 `hugo server -D` 验证 PaperMod 页面
-- [ ] 根据正式站点名称更新 `hugo.toml`、README 和 GitHub 仓库描述
+- [ ] 写第一批正式文章，替换或删除示例文章
 
 ## Later
 

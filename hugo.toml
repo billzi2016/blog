@@ -1,7 +1,8 @@
 # 意图：Hugo 站点主配置，使用 PaperMod 主题提供博客页面、SEO、RSS 和响应式布局。
 # 维护原则：优先使用主题已有能力；只有主题无法满足且 specs 明确要求时，才增加本仓库自定义模板。
 
-baseURL = "https://example.com/"
+# GitHub Pages 当前公开地址；Actions 构建时仍会使用 Pages 输出的 base_url 覆盖。
+baseURL = "https://billzi2016.github.io/blog/"
 languageCode = "zh-cn"
 title = "我的博客"
 timeZone = "Asia/Shanghai"

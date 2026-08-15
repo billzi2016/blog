@@ -2,7 +2,7 @@
 
 这个仓库放我的 Hugo 博客。
 
-文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。
+文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。主题用 PaperMod，通过 Hugo Modules 引入，不在仓库里维护主题源码。
 
 [站点仓库](https://github.com/billzi2016/blog)  
 [GitHub Actions](https://github.com/billzi2016/blog/actions)
@@ -13,12 +13,11 @@
 .
 ├── .github/workflows/     # Pages 部署
 ├── archetypes/            # 新文章模板
-├── assets/                # 样式
 ├── content/               # 文章
-├── layouts/               # 页面模板
 ├── specs/                 # 需求、结构和任务记录
 ├── static/                # 原样发布的静态文件
 ├── AGENTS.md              # 协作规则
+├── go.mod                 # Hugo Modules
 ├── hugo.toml              # Hugo 配置
 └── README.md
 ```
@@ -45,7 +44,7 @@ summary: ""
 
 ## 本地预览
 
-需要先安装 Hugo Extended。
+需要先安装 Hugo Extended 和 Go。
 
 ```bash
 hugo server -D

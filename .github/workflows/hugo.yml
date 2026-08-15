@@ -32,13 +32,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          # 当前主题通过 Hugo Modules 引入，不使用 Git submodule。
           fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          # Hugo Modules 需要 Go 工具链解析和下载主题模块。
+          go-version-file: go.mod
 
       - name: Install Hugo
         run: |
           wget -O "$RUNNER_TEMP/hugo.deb" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
           sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
+
+      - name: Download Hugo modules
+        # 显式下载主题依赖，让模块解析失败时在构建前暴露清楚。
+        run: hugo mod get
 
       - name: Configure Pages
         id: pages

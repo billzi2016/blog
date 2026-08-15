@@ -1,30 +1,55 @@
-# 意图：Hugo 站点主配置，集中声明站点元信息、URL 规则、内容分类和构建输出。
-# 维护原则：新增全局能力前先更新 specs/，避免把临时需求直接堆进配置。
+# 意图：Hugo 站点主配置，使用 PaperMod 主题提供博客页面、SEO、RSS 和响应式布局。
+# 维护原则：优先使用主题已有能力；只有主题无法满足且 specs 明确要求时，才增加本仓库自定义模板。
 
-# 部署到正式域名后再替换；GitHub Actions 会在 Pages 构建时传入最终 baseURL。
 baseURL = "https://example.com/"
 languageCode = "zh-cn"
 title = "我的博客"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
+theme = ["PaperMod"]
 
 [params]
-  # 站点描述会用于首页文案和 HTML description，保持短句，避免承担文章分类职责。
+  # PaperMod 会读取这些元信息生成页面标题、描述、SEO 标签和主题入口。
   description = "按题目组织，按日期记录。"
   author = "bizi"
-  # 关键词服务 SEO 和 README 中的项目定位；保持稳定，不为单篇文章临时修改。
   keywords = ["Hugo", "静态博客", "个人写作", "Markdown", "GitHub Pages", "题目归档", "日期记录"]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+  TocOpen = false
 
-  # 公开链接集中配置，模板只负责渲染，避免在多个页面重复硬编码链接。
-  [[params.links]]
+  [params.homeInfoParams]
+    # 首页文案交给主题的 home-info 模式，不再维护自写首页模板。
+    Title = "我的博客"
+    Content = "按题目组织文章，用日期记录时间。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/billzi2016/blog"
+
+[menu]
+  # 导航使用主题菜单系统，避免在 layouts 中硬编码页头链接。
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "github"
     name = "GitHub"
     url = "https://github.com/billzi2016/blog"
-  [[params.links]]
-    name = "Actions"
-    url = "https://github.com/billzi2016/blog/actions"
-  [[params.links]]
-    name = "RSS"
-    url = "/index.xml"
+    weight = 30
 
 [permalinks]
   # URL 以题目 slug 为主，不把日期放进永久链接，符合“题目为主，日期为辅”的产品约束。
@@ -44,3 +69,8 @@ enableRobotsTXT = true
 [outputs]
   # 首页额外输出 RSS，方便以后接入订阅入口。
   home = ["HTML", "RSS"]
+
+[module]
+  # PaperMod 通过 Hugo Modules 引入；构建时下载主题，不提交第三方主题源码。
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"

@@ -1,9 +1,0 @@
-{{/* 意图：全站页头导航；只放稳定入口，避免把临时页面塞进主导航。 */}}
-<header class="site-header">
-  <a class="site-title" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
-  <nav class="site-nav" aria-label="主导航">
-    <a href="{{ site.Home.RelPermalink }}">首页</a>
-    <a href="{{ relLangURL "posts/" }}">文章</a>
-    <a href="{{ relLangURL "tags/" }}">标签</a>
-  </nav>
-</header>

@@ -17,6 +17,7 @@
 - [x] 添加 README、站点关键词和公开链接入口
 - [x] 设置 GitHub 仓库 description、homepage 和 topics
 - [x] 修正 GitHub Pages 首次部署启用配置
+- [x] 改用 PaperMod Hugo Module，删除自写模板和样式轮子
 
 ## Next
 

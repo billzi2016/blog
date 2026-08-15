@@ -3,7 +3,7 @@
 
 # GitHub Pages 当前公开地址；Actions 构建时仍会使用 Pages 输出的 base_url 覆盖。
 baseURL = "https://billzi2016.github.io/blog/"
-languageCode = "zh-cn"
+locale = "zh-cn"
 title = "我的博客"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true

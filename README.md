@@ -1,6 +1,6 @@
-# bill
+# Bill's Blog
 
-这个仓库放 bill 的 Hugo 博客。
+这个仓库放 Bill's Blog。
 
 文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。主题用 PaperMod，通过 Hugo Modules 引入，不在仓库里维护主题源码。
 

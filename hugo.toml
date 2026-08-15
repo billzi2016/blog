@@ -4,7 +4,7 @@
 # GitHub Pages 当前公开地址；Actions 构建时仍会使用 Pages 输出的 base_url 覆盖。
 baseURL = "https://billzi2016.github.io/blog/"
 locale = "zh-cn"
-title = "bill"
+title = "Bill's Blog"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
 
@@ -24,7 +24,7 @@ enableRobotsTXT = true
 
   [params.homeInfoParams]
     # 首页文案交给主题的 home-info 模式，不再维护自写首页模板。
-    Title = "bill"
+    Title = "Bill's Blog"
     Content = "按题目组织文章，用日期记录时间。"
 
   [[params.socialIcons]]

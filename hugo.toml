@@ -4,14 +4,14 @@
 # GitHub Pages 当前公开地址；Actions 构建时仍会使用 Pages 输出的 base_url 覆盖。
 baseURL = "https://billzi2016.github.io/blog/"
 locale = "zh-cn"
-title = "我的博客"
+title = "bill"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
 
 [params]
   # PaperMod 会读取这些元信息生成页面标题、描述、SEO 标签和主题入口。
-  description = "按题目组织，按日期记录。"
-  author = "bizi"
+  description = "bill 的个人博客，按题目组织文章，用日期记录时间。"
+  author = "bill"
   keywords = ["Hugo", "静态博客", "个人写作", "Markdown", "GitHub Pages", "题目归档", "日期记录"]
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -24,7 +24,7 @@ enableRobotsTXT = true
 
   [params.homeInfoParams]
     # 首页文案交给主题的 home-info 模式，不再维护自写首页模板。
-    Title = "我的博客"
+    Title = "bill"
     Content = "按题目组织文章，用日期记录时间。"
 
   [[params.socialIcons]]
@@ -40,16 +40,28 @@ enableRobotsTXT = true
     weight = 10
 
   [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 30
+
+  [[menu.main]]
     identifier = "tags"
     name = "标签"
     url = "/tags/"
-    weight = 20
+    weight = 40
 
   [[menu.main]]
     identifier = "github"
     name = "GitHub"
     url = "https://github.com/billzi2016/blog"
-    weight = 30
+    weight = 50
 
 [permalinks]
   # URL 以题目 slug 为主，不把日期放进永久链接，符合“题目为主，日期为辅”的产品约束。
@@ -67,8 +79,18 @@ enableRobotsTXT = true
       unsafe = true
 
 [outputs]
-  # 首页额外输出 RSS，方便以后接入订阅入口。
-  home = ["HTML", "RSS"]
+  # 首页额外输出 RSS 和 JSON；JSON 供 PaperMod 内置搜索使用。
+  home = ["HTML", "RSS", "JSON"]
+
+[params.fuseOpts]
+  # PaperMod 搜索使用 Fuse.js；这些参数控制中文和英文标题的容错搜索体验。
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 1
+  keys = ["title", "permalink", "summary", "content"]
 
 [module]
   # PaperMod 通过 Hugo Modules 引入；构建时下载主题，不提交第三方主题源码。

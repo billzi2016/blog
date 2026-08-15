@@ -1,6 +1,6 @@
-# Hugo 个人博客
+# bill
 
-这个仓库放我的 Hugo 博客。
+这个仓库放 bill 的 Hugo 博客。
 
 文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。主题用 PaperMod，通过 Hugo Modules 引入，不在仓库里维护主题源码。
 
@@ -48,6 +48,12 @@ summary: ""
 
 ```bash
 hugo server -D
+```
+
+提交前先跑一次本地构建：
+
+```bash
+hugo --gc --minify
 ```
 
 ## 部署

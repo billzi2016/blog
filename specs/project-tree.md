@@ -11,7 +11,9 @@
 ├── archetypes/
 │   └── default.md
 ├── content/
+│   ├── about.md
 │   ├── _index.md
+│   ├── search.md
 │   └── posts/
 │       ├── _index.md
 │       └── hello-hugo.md

@@ -48,7 +48,7 @@
 范围：
 
 - [x] 使用正式站点名称 `Bill's Blog`
-- [x] 使用正式作者名 `bill`
+- [x] 公开文案不展示个性化作者名
 - [x] 根据正式名称同步更新 `hugo.toml` 和 README
 - [x] 写入第一篇正式文章
 - [x] 改写示例文章 `content/posts/hello-hugo.md`

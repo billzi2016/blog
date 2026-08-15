@@ -10,8 +10,8 @@ enableRobotsTXT = true
 
 [params]
   # PaperMod 会读取这些元信息生成页面标题、描述、SEO 标签和主题入口。
-  description = "bill 的个人博客，按题目组织文章，用日期记录时间。"
-  author = "bill"
+  description = "按题目组织文章，用日期记录时间。"
+  author = "博客作者"
   keywords = ["Hugo", "静态博客", "个人写作", "Markdown", "GitHub Pages", "题目归档", "日期记录"]
   defaultTheme = "auto"
   ShowReadingTime = true

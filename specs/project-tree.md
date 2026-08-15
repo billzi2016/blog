@@ -23,6 +23,8 @@
 │   ├── prd.md
 │   ├── project-tree.md
 │   └── tasks.md
+├── scripts/
+│   └── new-post.sh
 └── static/
 ```
 

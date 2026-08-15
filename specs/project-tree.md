@@ -7,6 +7,7 @@
 │       └── hugo.yml
 ├── .gitignore
 ├── AGENTS.md
+├── README.md
 ├── archetypes/
 │   └── default.md
 ├── assets/

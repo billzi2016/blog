@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{/* 页面 description 优先使用单页描述；没有时回退到站点描述，保证元信息始终存在。 */}}
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+    {{ with site.Params.keywords }}
+      {{/* 站点关键词从配置读取，避免模板和 README 各维护一套不同口径。 */}}
+      <meta name="keywords" content="{{ delimit . ", " }}">
+    {{ end }}
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
     {{ with resources.Get "css/main.css" }}
       {{/* 样式通过 Hugo Pipeline 压缩并加指纹，避免浏览器缓存旧 CSS。 */}}

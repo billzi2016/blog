@@ -196,6 +196,23 @@ h2 {
   font-size: 0.9rem;
 }
 
+.footer-links {
+  /* 页脚链接保持低调，承担辅助入口，不抢文章阅读焦点。 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
 @media (max-width: 560px) {
   /* 移动端导航改为上下排列，避免标题和导航互相挤压。 */
   .site-header {

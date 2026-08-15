@@ -12,6 +12,19 @@ enableRobotsTXT = true
   # 站点描述会用于首页文案和 HTML description，保持短句，避免承担文章分类职责。
   description = "按题目组织，按日期记录。"
   author = "bizi"
+  # 关键词服务 SEO 和 README 中的项目定位；保持稳定，不为单篇文章临时修改。
+  keywords = ["Hugo", "静态博客", "个人写作", "Markdown", "GitHub Pages", "题目归档", "日期记录"]
+
+  # 公开链接集中配置，模板只负责渲染，避免在多个页面重复硬编码链接。
+  [[params.links]]
+    name = "GitHub"
+    url = "https://github.com/billzi2016/blog"
+  [[params.links]]
+    name = "Actions"
+    url = "https://github.com/billzi2016/blog/actions"
+  [[params.links]]
+    name = "RSS"
+    url = "/index.xml"
 
 [permalinks]
   # URL 以题目 slug 为主，不把日期放进永久链接，符合“题目为主，日期为辅”的产品约束。

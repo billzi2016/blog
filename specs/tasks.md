@@ -14,6 +14,8 @@
 - [x] 添加 `specs/` 项目规格文档目录
 - [x] 添加 `AGENTS.md` 项目工作规则
 - [x] 为现有代码和配置文件补充中文维护注释
+- [x] 添加 README、站点关键词和公开链接入口
+- [x] 设置 GitHub 仓库 description、homepage 和 topics
 
 ## Next
 

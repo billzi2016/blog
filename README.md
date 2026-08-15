@@ -4,8 +4,7 @@
 
 文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。主题用 PaperMod，通过 Hugo Modules 引入，不在仓库里维护主题源码。
 
-[站点仓库](https://github.com/billzi2016/blog)  
-[GitHub Actions](https://github.com/billzi2016/blog/actions)
+[博客站点](https://billzi2016.github.io/blog/)
 
 ## 目录
 

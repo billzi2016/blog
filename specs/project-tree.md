@@ -25,7 +25,6 @@
 │   └── tasks.md
 ├── scripts/
 │   └── new-post.sh
-└── static/
 ```
 
 ## 目录说明
@@ -35,4 +34,3 @@
 - `content/`：博客内容。
 - `go.mod`：Hugo Modules 入口，用来引入 PaperMod 主题。
 - `specs/`：需求、结构和任务记录。
-- `static/`：原样复制到站点根目录的静态资源。

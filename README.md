@@ -17,7 +17,6 @@
 ├── content/               # 文章
 ├── specs/                 # 需求、结构和任务记录
 ├── scripts/               # 写作辅助脚本
-├── static/                # 原样发布的静态文件
 ├── AGENTS.md              # 协作规则
 ├── go.mod                 # Hugo Modules
 ├── hugo.toml              # Hugo 配置

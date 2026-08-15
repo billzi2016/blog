@@ -60,7 +60,7 @@ enableRobotsTXT = true
   [[menu.main]]
     identifier = "rss"
     name = "RSS"
-    url = "/rss/"
+    url = "/index.xml"
     weight = 50
 
   [[menu.main]]

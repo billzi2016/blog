@@ -1,8 +1,8 @@
 ---
 title: "博客底座搭建记录"
-date: 2026-08-15T04:00:00+08:00
+date: 2026-08-15T04:07:21-04:00
 draft: false
-slug: "blog-foundation"
+slug: "20260815-040721"
 tags: ["Hugo", "PaperMod", "GitHub Pages"]
 categories: ["记录"]
 summary: "记录这个博客从空目录到 Hugo、PaperMod 和 GitHub Pages 自动部署的基础搭建过程。"

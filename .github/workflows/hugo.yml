@@ -43,6 +43,9 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # 新仓库首次部署时自动启用 Pages，避免 Pages 尚未配置导致工作流失败。
+          enablement: true
 
       - name: Build with Hugo
         env:

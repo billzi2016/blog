@@ -1,35 +1,37 @@
 # Hugo 个人博客
 
-这是一个 Hugo 静态博客项目，内容组织方式是“题目为主，日期为辅”。
+这个仓库放我的 Hugo 博客。
+
+文章按题目来组织，日期只用来排序和记录时间，不放进文章 URL。
 
 [站点仓库](https://github.com/billzi2016/blog)  
 [GitHub Actions](https://github.com/billzi2016/blog/actions)
 
-## 项目结构
+## 目录
 
 ```text
 .
-├── .github/workflows/     # GitHub Pages 构建部署工作流
-├── archetypes/            # Hugo 新文章模板
-├── assets/                # 样式和可被 Hugo Pipeline 处理的资源
-├── content/               # 博客正文内容
-├── layouts/               # Hugo 页面模板
-├── specs/                 # PRD、项目结构和任务清单
-├── static/                # 原样复制到站点根目录的静态资源
-├── AGENTS.md              # 项目协作与质量规则
-├── hugo.toml              # Hugo 站点配置
-└── README.md              # 项目说明
+├── .github/workflows/     # Pages 部署
+├── archetypes/            # 新文章模板
+├── assets/                # 样式
+├── content/               # 文章
+├── layouts/               # 页面模板
+├── specs/                 # 需求、结构和任务记录
+├── static/                # 原样发布的静态文件
+├── AGENTS.md              # 协作规则
+├── hugo.toml              # Hugo 配置
+└── README.md
 ```
 
-## 写作方式
+## 写文章
 
-新文章放在 `content/posts/` 下，文件名使用清晰的英文或拼音 slug。
+文章放在 `content/posts/`。文件名用清楚的 slug，别用日期当主结构。
 
 ```bash
 hugo new posts/example-topic.md
 ```
 
-文章 front matter 保持以下字段：
+每篇文章保留这些字段：
 
 ```yaml
 title: "文章题目"
@@ -41,7 +43,7 @@ categories: []
 summary: ""
 ```
 
-## 本地运行
+## 本地预览
 
 需要先安装 Hugo Extended。
 
@@ -51,4 +53,4 @@ hugo server -D
 
 ## 部署
 
-推送到 `main` 分支后，GitHub Actions 会构建 Hugo 并部署到 GitHub Pages。
+推送到 `main` 后，Actions 会构建并发布到 GitHub Pages。

@@ -16,6 +16,7 @@
 - [x] 为现有代码和配置文件补充中文维护注释
 - [x] 添加 README、站点关键词和公开链接入口
 - [x] 设置 GitHub 仓库 description、homepage 和 topics
+- [x] 修正 GitHub Pages 首次部署启用配置
 
 ## Next
 

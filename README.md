@@ -2,9 +2,9 @@
 
 这个仓库放 Hugo 博客项目。
 
-文章以题目作为主要阅读入口，日期只用来排序和记录时间。URL 由创建时生成的唯一 ID 决定，避免同一天写相同题目时发生冲突。
+文章以题目作为主要阅读入口，日期用于排序和记录时间。URL 由创建时生成的唯一 ID 决定，同一天的同题文章也会得到不同地址。
 
-主题用 PaperMod，通过 Hugo Modules 引入，不在仓库里维护主题源码。
+主题用 PaperMod，通过 Hugo Modules 引入；仓库主要保存内容、配置和写作辅助脚本。
 
 [博客站点](https://billzi2016.github.io/blog/)
 
@@ -26,7 +26,7 @@
 
 ## 写文章
 
-文章放在 `content/posts/`。推荐用脚本创建文章，只输入标题，文件名和 slug 自动带时间戳。
+文章放在 `content/posts/`。脚本会根据标题创建文章，并生成带时间戳的文件名和 slug。
 
 ```bash
 scripts/new-post.sh "文章题目"
@@ -44,11 +44,11 @@ categories: []
 summary: ""
 ```
 
-同一天写两篇相同题目时，不需要手动改 URL；脚本会生成不同文件名和不同 slug。
+同一天写两篇相同题目时，URL 由脚本处理；脚本会生成不同文件名和不同 slug。
 
 ## 本地预览
 
-需要先安装 Hugo Extended 和 Go。
+本地预览依赖 Hugo Extended 和 Go。
 
 ```bash
 hugo server -D

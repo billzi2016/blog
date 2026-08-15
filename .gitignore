@@ -3,6 +3,7 @@
 # Hugo 构建输出，可由 `hugo` 重新生成，不应提交。
 /public/
 /resources/_gen/
+/_linkcheck/
 /.hugo_build.lock
 
 # 本机环境文件可能包含隐私或密钥，必须排除。

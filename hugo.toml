@@ -1,4 +1,4 @@
-# 意图：Hugo 站点主配置，使用 PaperMod 主题提供博客页面、SEO 和响应式布局。
+# 意图：Hugo 站点主配置，使用 PaperMod 主题提供博客页面、SEO、RSS 和响应式布局。
 # 维护原则：优先使用主题已有能力；只有主题无法满足且 specs 明确要求时，才增加本仓库自定义模板。
 
 # GitHub Pages 当前公开地址；Actions 构建时仍会使用 Pages 输出的 base_url 覆盖。
@@ -7,7 +7,6 @@ locale = "zh-cn"
 title = "Bill's Blog"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
-disableKinds = ["rss"]
 
 [params]
   # PaperMod 会读取这些元信息生成页面标题、描述、SEO 标签和主题入口。
@@ -80,8 +79,8 @@ disableKinds = ["rss"]
       unsafe = true
 
 [outputs]
-  # 首页额外输出 JSON；JSON 供 PaperMod 内置搜索使用。
-  home = ["HTML", "JSON"]
+  # 首页额外输出 RSS 和 JSON；RSS 供阅读器使用，JSON 供 PaperMod 内置搜索使用。
+  home = ["HTML", "RSS", "JSON"]
 
 [params.fuseOpts]
   # PaperMod 搜索使用 Fuse.js；这些参数控制中文和英文标题的容错搜索体验。

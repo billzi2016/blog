@@ -13,6 +13,7 @@
 ├── content/
 │   ├── about.md
 │   ├── _index.md
+│   ├── rss.md
 │   ├── search.md
 │   └── posts/
 │       ├── _index.md

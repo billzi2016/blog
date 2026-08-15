@@ -58,10 +58,16 @@ enableRobotsTXT = true
     weight = 40
 
   [[menu.main]]
+    identifier = "rss"
+    name = "RSS"
+    url = "/rss/"
+    weight = 50
+
+  [[menu.main]]
     identifier = "github"
     name = "GitHub"
     url = "https://github.com/billzi2016/blog"
-    weight = 50
+    weight = 60
 
 [permalinks]
   # URL 以题目 slug 为主，不把日期放进永久链接，符合“题目为主，日期为辅”的产品约束。

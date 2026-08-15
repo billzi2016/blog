@@ -6,7 +6,6 @@ languageCode = "zh-cn"
 title = "我的博客"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
-theme = ["PaperMod"]
 
 [params]
   # PaperMod 会读取这些元信息生成页面标题、描述、SEO 标签和主题入口。

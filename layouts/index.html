@@ -1,0 +1,27 @@
+{{/* 意图：首页模板；展示站点定位和最新文章入口。 */}}
+{{/* 维护原则：首页只负责引导阅读，不承担完整归档职责。 */}}
+{{ define "main" }}
+  <section class="intro">
+    <p class="eyebrow">Daily writing, topic first</p>
+    <h1>{{ site.Title }}</h1>
+    <p>{{ site.Params.description }}</p>
+  </section>
+
+  <section class="post-list" aria-labelledby="latest-posts">
+    <div class="section-head">
+      <h2 id="latest-posts">最新文章</h2>
+      <a href="{{ relLangURL "posts/" }}">查看全部</a>
+    </div>
+
+    {{/* 只取 posts 分区内容，避免以后新增 About 等页面后混入文章列表。 */}}
+    {{ $posts := where site.RegularPages "Section" "posts" }}
+    {{ if $posts }}
+      {{/* 首页限制展示数量，完整列表交给 posts 列表页。 */}}
+      {{ range first 10 $posts }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
+    {{ else }}
+      <p class="empty">还没有文章。</p>
+    {{ end }}
+  </section>
+{{ end }}

@@ -1,0 +1,33 @@
+# 意图：Hugo 站点主配置，集中声明站点元信息、URL 规则、内容分类和构建输出。
+# 维护原则：新增全局能力前先更新 specs/，避免把临时需求直接堆进配置。
+
+# 部署到正式域名后再替换；GitHub Actions 会在 Pages 构建时传入最终 baseURL。
+baseURL = "https://example.com/"
+languageCode = "zh-cn"
+title = "我的博客"
+timeZone = "Asia/Shanghai"
+enableRobotsTXT = true
+
+[params]
+  # 站点描述会用于首页文案和 HTML description，保持短句，避免承担文章分类职责。
+  description = "按题目组织，按日期记录。"
+  author = "bizi"
+
+[permalinks]
+  # URL 以题目 slug 为主，不把日期放进永久链接，符合“题目为主，日期为辅”的产品约束。
+  posts = "/posts/:slug/"
+
+[taxonomies]
+  # 标签和分类只承担聚合功能，不替代文章主标题。
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # 允许文章中嵌入少量可信 HTML；写作时仍优先使用 Markdown。
+      unsafe = true
+
+[outputs]
+  # 首页额外输出 RSS，方便以后接入订阅入口。
+  home = ["HTML", "RSS"]

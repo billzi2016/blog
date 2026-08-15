@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2026-08-15T04:00:00+08:00
+date: 2026-08-15T04:51:05-04:00
 draft: false
 slug: "about"
 summary: "这个博客的写作方式和维护边界。"

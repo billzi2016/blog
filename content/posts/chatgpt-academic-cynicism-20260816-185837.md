@@ -22,17 +22,55 @@ summary: "剖析大语言模型时代下学术同行评审的异化：当极度�
 > Let $\mathcal{C}$ be a stable $\infty$-category with a symmetric monoidal structure compatible with small colimits. Suppose $\mathcal{X} = \text{Spec}^{\text{der}}(R)$ is an affine spectral derived scheme over a stable $E_\infty$-ring spectrum $R$. For any connective $E_\infty$-$R$-algebra $A$, the canonical motivic localization functor $L_{\text{mot}}: \mathbf{Mod}_A(\mathcal{C}) \to \mathbf{Mod}_A(\mathcal{C})[W^{-1}]$ induces a natural equivalence of $\infty$-operads:
 > $$\mathbb{R}\mathbf{Hom}_{\mathbf{Alg}_{E_\infty}(\mathcal{C})}\left(\mathbf{THH}(R / S), \Omega^\infty \mathbf{TC}(A / R \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Z})\right) \simeq \lim_{\longleftarrow \Delta} \mathbf{Map}_{\text{Sch}^{\text{der}}}\left(\mathcal{X}_{\bullet}, \mathbb{B}\mathbf{GL}_n(A)^{\wedge}_p\right)$$
 > Furthermore, the filtration on the topological cyclic homology spectrum $\mathbf{TC}(A)$ descends to a degenerated motivic spectral sequence whose $E_2$-page coincides with the derived étale cohomology $H_{\text{ét}}^p\left(\mathcal{X}, \mathbf{\pi}_q^{\text{alg}}(\mathcal{S}_A)\right)$.
+>
+> **Lemma 4.13 (Motivic Homotopy Descent & Non-Connective K-Theory)**  
+> Let $\mathbf{K}(A)$ denote the non-connective algebraic K-theory spectrum of the connective $E_\infty$-ring $A$. The Cyclotomic trace map $\operatorname{trcyc}: \mathbf{K}(A) \to \mathbf{TC}(A)$ factors through the homotopy limit of the Nisnevich-local site $\mathcal{X}_{\text{Nis}}$, satisfying the hyper-descent property:
+> $$\mathbb{H}_{\text{Nis}}^\bullet\left(\mathcal{X}, \mathbf{K}^{\text{top}}\right) \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Q} \xrightarrow{\sim} \operatorname{holim}_{\Delta^{\text{op}}} \mathbf{TC}\left(A \otimes_{\mathbb{S}} \mathbb{S}[\Omega B G]\right)_{p}^{\wedge}$$
+> Where $BG$ represents the classifying stack of the absolute Galois group $\operatorname{Gal}(\bar{K}/K)$, establishing the chromatic filtration compatibility at prime $p$.
 
-这一段密密麻麻充斥着 $\infty$-操作子、$E_\infty$-环谱、拓扑循环同调（$\mathbf{TC}$）与衍生代数几何的几何段落，全宇宙能够完全独立推演并看懂其每一个定义细节的人，绝对不超过百万分之几。
+这一段密密麻麻充斥着 $\infty$-操作子、$E_\infty$-环谱、拓扑循环同调（$\mathbf{TC}$）、代数 K-理论与 Nisnevich 超下降的绝高阶段落，全宇宙能够完全独立推演并看懂其每一个定义细节的人，绝对不超过百万分之几。
 
-再来看另一段来自生成式 AI 与连续时间深度学习前沿（Flow Matching 流匹配与黎曼流形最优传输）的论文段落：
+
+再来看另一段来自生成式 AI 与连续时间深度学习前沿（Flow Matching 流匹配与黎曼流形最优传输）的超长论文段落：
 
 > **Definition 3.8 (Riemannian Optimal Transport Flow Matching)**  
-> Let $(\mathcal{M}, g)$ be a smooth $d$-dimensional Riemannian manifold without boundary, and let $p_0, p_1 \in \mathcal{P}_2(\mathcal{M})$ be two probability measures supported on $\mathcal{M}$. Consider the time-dependent vector field $v_t \in \Gamma(T\mathcal{M})$ generating the push-forward map $\psi_t: \mathcal{M} \to \mathcal{M}$ via the push-forward continuity equation $\frac{d}{dt}\psi_t(x) = v_t(\psi_t(x))$. The Riemannian Conditional Flow Matching (R-CFM) objective $\mathcal{L}_{\text{R-CFM}}(\theta)$ minimizes the expected tangent bundle discrepancy over the geodesic path $\gamma_{x_0, x_1}(t) = \exp_{x_0}\left(t \log_{x_0}(x_1)\right)$:
-> $$\mathcal{L}_{\text{R-CFM}}(\theta) = \mathbb{E}_{t \sim U(0,1), (x_0, x_1) \sim q(x_0, x_1)}\left[ \left\| v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t) \right\|_{g_{\gamma_{x_0, x_1}(t)}}^2 \right]$$
-> Where $\dot{\gamma}_{x_0, x_1}(t) = \mathrm{d}_{\text{exp}_{x_0}}\left(t \log_{x_0}(x_1)\right)\left[\log_{x_0}(x_1)\right]$ corresponds to the covariant velocity field along the unique minimizing geodesic in the Sobolev space $W^{1,2}([0,1], \mathcal{M})$.
+> Let $(\mathcal{M}, g)$ be a smooth, compact $d$-dimensional Riemannian manifold without boundary, endowed with the Levi-Civita connection $\nabla$. Let $\mathcal{P}_2(\mathcal{M})$ denote the Wasserstein space of probability measures on $\mathcal{M}$ with finite second moments. Let $p_0, p_1 \in \mathcal{P}_2(\mathcal{M})$ be two target density distributions supported on $\mathcal{M}$. We consider a time-dependent vector field $v_t \in \Gamma(T\mathcal{M})$ for $t \in [0,1]$ that generates a unique flow of diffeomorphisms $\psi_t: \mathcal{M} \to \mathcal{M}$ via the manifold push-forward Cauchy problem:
+> $$\frac{\partial}{\partial t}\psi_t(x) = v_t(\psi_t(x)), \quad \psi_0(x) = x$$
+> The probability density path $p_t = (\psi_t)_\sharp p_0$ satisfies the continuity equation on the tangent bundle:
+> $$\frac{\partial}{\partial t}p_t(x) + \operatorname{div}_g\left(p_t(x) v_t(x)\right) = 0, \quad \text{where } \operatorname{div}_g(X) = \frac{1}{\sqrt{|g|}} \partial_i \left( \sqrt{|g|} X^i \right)$$
+> For any pair $(x_0, x_1) \in \mathcal{M} \times \mathcal{M}$, let $\gamma_{x_0, x_1}: [0,1] \to \mathcal{M}$ be the unique minimizing geodesic connecting $x_0$ to $x_1$ inside the injectivity radius $\operatorname{inj}(\mathcal{M})$, given by the Riemannian exponential map $\gamma_{x_0, x_1}(t) = \exp_{x_0}\left(t \log_{x_0}(x_1)\right)$. The Riemannian Conditional Flow Matching (R-CFM) loss functional $\mathcal{L}_{\text{R-CFM}}(\theta)$ over the parameterized neural vector field $v_t(\cdot; \theta) \in \Gamma(T\mathcal{M})$ is defined as:
+> $$\mathcal{L}_{\text{R-CFM}}(\theta) = \mathbb{E}_{t \sim U(0,1)} \mathbb{E}_{(x_0, x_1) \sim q(x_0, x_1)} \left[ g_{\gamma_{x_0, x_1}(t)}\left( v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t), \; v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t) \right) \right]$$
+> Where the target velocity vector $\dot{\gamma}_{x_0, x_1}(t) = \frac{d}{dt}\exp_{x_0}\left(t \log_{x_0}(x_1)\right) \in T_{\gamma_{x_0, x_1}(t)}\mathcal{M}$ represents the covariant intrinsic velocity field.
+>
+> **Proposition 3.9 (Covariant Vector Field Divergence & Sobolev Equivalence)**  
+> Let $\nabla_{\dot{\gamma}}$ denote the covariant derivative along the geodesic $\gamma$. Under the assumption that the Ricci curvature of $(\mathcal{M}, g)$ is bounded below by $K \in \mathbb{R}$, the marginal vector field $u_t(x) = \int_{\mathcal{M}} v_t(x \mid x_1) \frac{p_t(x \mid x_1) q_1(x_1)}{p_t(x)} \mathrm{d}\mathrm{vol}_g(x_1)$ satisfies the marginal continuity condition $\frac{\partial}{\partial t}p_t + \operatorname{div}_g(p_t u_t) = 0$. Furthermore, the gradient of the R-CFM loss $\nabla_\theta \mathcal{L}_{\text{R-CFM}}(\theta)$ coincides with the population loss gradient $\nabla_\theta \mathcal{L}_{\text{RFM}}(\theta) = \int_0^1 \int_{\mathcal{M}} \|v_t(x;\theta) - u_t(x)\|_g^2 \, p_t(x) \, \mathrm{d}\mathrm{vol}_g(x) \, \mathrm{d}t$ up to a constant independent of $\theta$, guaranteeing that the learned metric tensor induces an isometric embedding into the Hilbert-Sobolev space $W^{2,p}(T\mathcal{M})$.
 
-无论是前者的 $\infty$-范畴谱序列，还是后者的黎曼流形最优传输 Flow Matching 向量场，都构成了对人类常规认知深度的绝绝对高墙。
+无论是前者的 $\infty$-范畴谱序列，还是后者长达数十行的黎曼流形微分几何 Flow Matching，都构成了对人类常规认知深度的绝绝对高墙，足以让任何试图靠肉眼草稿纸硬推的审稿人瞬间偏头痛发作、太阳穴暴跳。
+
+再看第三段来自随机分析与非平衡态统计物理前沿（薛定谔桥系统 Schrödinger Bridge Problem 与无限维熵对偶）的超长证明段落：
+
+> **Theorem 5.4 (Infinite-Dimensional Schrödinger Bridge Verification & Entropy Dual)**  
+> Let $\Omega = C([0,T]; \mathbb{R}^d)$ be the continuous path space equipped with the reference Wiener measure $R \in \mathcal{P}(\Omega)$ corresponding to the unforced Brownian motion $\mathrm{d}X_t = \sigma \mathrm{d}W_t$. Let $P_0, P_T \in \mathcal{P}(\mathbb{R}^d)$ be two marginal probability measures with finite relative entropy $\mathrm{D}_{\text{KL}}(P_0 \| \mathrm{d}x) < \infty$ and $\mathrm{D}_{\text{KL}}(P_T \| \mathrm{d}x) < \infty$. The infinite-dimensional Schrödinger Bridge Problem (SBP) seeks the unique path-space measure $P^* \in \mathcal{P}(\Omega)$ satisfying:
+> $$P^* = \arg\min_{P \in \mathcal{P}(\Omega)} \left\{ \mathrm{D}_{\text{KL}}(P \| R) \; \middle|\; (e_0)_\sharp P = P_0, \; (e_T)_\sharp P = P_T \right\}$$
+> Where $e_t: \Omega \to \mathbb{R}^d$ denotes the evaluation operator $e_t(\omega) = \omega(t)$.
+>
+> **Lemma 5.5 (Coupled Forward-Backward System & Stochastic Hopf-Cole Transformation)**  
+> By Nelson's stochastic mechanics and the Girsanov change of measure, the optimal path measure $P^*$ is uniquely characterized by the coupled system of forward-backward parabolic partial differential equations on $\mathbb{R}^d \times [0,T]$:
+> $$\begin{cases}
+> \frac{\partial}{\partial t}\varphi(x,t) = -\frac{\sigma^2}{2} \Delta \varphi(x,t) + V(x,t)\varphi(x,t), & \varphi(x,0) = \varphi_0(x) \\
+> \frac{\partial}{\partial t}\hat{\varphi}(x,t) = \frac{\sigma^2}{2} \Delta \hat{\varphi}(x,t) - V(x,t)\hat{\varphi}(x,t), & \hat{\varphi}(x,T) = \hat{\varphi}_T(x)
+> \end{cases}$$
+> Subject to the strict marginal constraints $\varphi(x,t) \cdot \hat{\varphi}(x,t) = p_t^*(x)$ for all $t \in [0,T]$. The optimal Markovian drift vector field $u^*(x,t) \in \Gamma(T\mathbb{R}^d)$ is explicitly generated via the generalized stochastic Hopf-Cole transformation:
+> $$u^*(x,t) = \sigma^2 \nabla \log \varphi(x,t) = \frac{\sigma^2}{\varphi(x,t)} \nabla \varphi(x,t)$$
+>
+> **Proposition 5.6 (Dual Kantorovich-Sinkhorn Functional Convergence)**  
+> The unique existence of the non-negative potential pair $(\varphi_0, \hat{\varphi}_T) \in L^1(P_0) \times L^1(P_T)$ is guaranteed by the global contractivity of the Sinkhorn operator $\mathcal{S}: L^\infty(\mathbb{R}^d) \to L^\infty(\mathbb{R}^d)$ under the Hilbert projective metric $d_{\mathcal{H}}(f, g) = \log \sup_{x,y} \frac{f(x) g(y)}{f(y) g(x)}$. Furthermore, the dynamic relative entropy dissipation rate obeys:
+> $$\frac{\mathrm{d}}{\mathrm{d}t} \mathrm{D}_{\text{KL}}(P_t^* \| R_t) = -\frac{\sigma^2}{2} \int_{\mathbb{R}^d} \left\| \nabla \log \left( \frac{\mathrm{d}P_t^*}{\mathrm{d}R_t} \right) \right\|^2 \mathrm{d}P_t^* - \int_{\mathbb{R}^d} \operatorname{Tr}\left( \operatorname{Hess}(V) \right) \mathrm{d}P_t^* \le -C_K \mathrm{D}_{\text{KL}}(P_t^* \| R_t)$$
+> Establishing global linear contraction in the 2-Wasserstein metric space $\mathcal{W}_2(\mathcal{P}(\mathbb{R}^d))$.
+
+面对这三段跨越衍生代数几何、黎曼流形 Flow Matching 与薛定谔桥偏微分方程的绝绝对高墙，全宇宙能够靠肉眼草稿纸独立演算看懂的人屈指可数，足以让任何审稿人瞬间崩溃消沉、偏头痛发作。
+
+
 
 #### B. “天知地知，你知我知，ChatGPT 知”
 

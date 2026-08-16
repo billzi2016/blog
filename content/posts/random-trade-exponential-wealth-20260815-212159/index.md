@@ -1,7 +1,7 @@
 ---
 title: "随机交易模型中的指数财富分布"
 date: "2026-08-15T21:21:59-04:00"
-draft: true
+draft: false
 slug: "20260815-212159"
 tags: ["随机交易", "财富分布", "统计物理", "Econophysics", "基尼系数"]
 categories: ["笔记"]

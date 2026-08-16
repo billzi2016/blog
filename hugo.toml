@@ -21,6 +21,7 @@ enableRobotsTXT = true
   ShowRssButtonInSectionTermList = false
   ShowToc = true
   TocOpen = false
+  math = true
 
   [params.homeInfoParams]
     # 首页文案交给主题的 home-info 模式，不再维护自写首页模板。

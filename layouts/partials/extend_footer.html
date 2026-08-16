@@ -1,0 +1,23 @@
+<!-- 意图：为 Hugo PaperMod 主题引入 Mermaid.js 图表实时渲染引擎。 -->
+<!-- 维护原则：自动捕获 Markdown 中生成的 mermaid 代码块，并根据站点深色/浅色主题渲染成对应配色的矢量流程图。 -->
+{{ if .Params.mermaid | default true }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll("pre code.language-mermaid");
+    elements.forEach(el => {
+      const pre = el.parentElement;
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = el.textContent;
+      pre.replaceWith(div);
+    });
+    const isDark = document.body.classList.contains("dark");
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: isDark ? "dark" : "default"
+    });
+    mermaid.run();
+  });
+</script>
+{{ end }}

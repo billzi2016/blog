@@ -1,6 +1,6 @@
 <!-- 意图：为 Hugo PaperMod 主题引入 Mermaid.js 图表实时渲染引擎。 -->
-<!-- 维护原则：Mermaid 代码块由 Hugo render hook 标记；这里只在页面确实使用图表时加载脚本。 -->
-{{ if or (.Store.Get "hasMermaid") .Params.mermaid }}
+<!-- 维护原则：默认让全站 Markdown 都能直接使用 mermaid 代码块；只有页面显式 mermaid = false 时才关闭。 -->
+{{ if ne .Params.mermaid false }}
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 

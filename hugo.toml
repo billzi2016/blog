@@ -82,6 +82,8 @@ enableRobotsTXT = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.extensions]
+      # 中文文章常用半角波浪号表示范围，如 4GHz~5GHz；关闭删除线扩展，避免普通范围被误渲染为 <del>。
+      strikethrough = false
       [markup.goldmark.extensions.passthrough]
         # 数学公式先由 Goldmark 原样透传，再交给 KaTeX；避免 Markdown 解析器误处理公式里的星号、下划线、反斜杠和全角符号。
         enable = true

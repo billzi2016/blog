@@ -11,18 +11,23 @@ fi
 
 title="$*"
 
-python3 - "$title" <<'PY'
+python3 - "$title" "${2:-}" <<'PY'
 import json
 from pathlib import Path
 import sys
 from datetime import datetime
 
 title = sys.argv[1]
+slug_prefix = sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] else ""
 posts_dir = Path("content/posts")
 posts_dir.mkdir(parents=True, exist_ok=True)
 
-# 秒级时间戳用于区分同一天的同题文章；标题仍只负责展示。
-slug = datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
+timestamp = datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
+if slug_prefix:
+    slug = f"{slug_prefix}-{timestamp}"
+else:
+    slug = timestamp
+
 path = posts_dir / f"{slug}.md"
 
 now = datetime.now().astimezone().isoformat(timespec="seconds")
@@ -45,3 +50,4 @@ with open(path, "x", encoding="utf-8") as file:
 
 print(path)
 PY
+

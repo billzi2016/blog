@@ -1,6 +1,9 @@
 <!-- 意图：把 Markdown 中的 mermaid 代码块转换为 Mermaid.js 可直接渲染的图表节点。 -->
 <!-- 维护原则：图表语法保持标准 fenced code block，不要求作者改写成 shortcode 或 HTML。 -->
+{{- $diagram := .Inner -}}
+{{- /* Mermaid 对含中文、冒号或空格的 flowchart 方括号标签更挑剔；这里在输出层补引号，避免把兼容规则推给 Markdown 作者。 */ -}}
+{{- $diagram = replaceRE `([A-Za-z][A-Za-z0-9_]*)\[([^"\]\n][^\]\n]*)\]` `${1}["${2}"]` $diagram -}}
 <pre class="mermaid">
-  {{ .Inner | htmlEscape | safeHTML }}
+  {{ $diagram | htmlEscape | safeHTML }}
 </pre>
 {{ .Page.Store.Set "hasMermaid" true }}

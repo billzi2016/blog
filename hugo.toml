@@ -20,7 +20,7 @@ enableRobotsTXT = true
   ShowCodeCopyButtons = true
   ShowRssButtonInSectionTermList = false
   ShowToc = true
-  TocOpen = false
+  TocOpen = true
   math = true
 
   [params.homeInfoParams]

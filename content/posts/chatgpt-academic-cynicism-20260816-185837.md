@@ -20,12 +20,17 @@ summary: "剖析大语言模型时代下学术同行评审的异化：当极度�
 
 > **Theorem 4.12 (Spectral Derived Stack Cohomology)**  
 > Let $\mathcal{C}$ be a stable $\infty$-category with a symmetric monoidal structure compatible with small colimits. Suppose $\mathcal{X} = \text{Spec}^{\text{der}}(R)$ is an affine spectral derived scheme over a stable $E_\infty$-ring spectrum $R$. For any connective $E_\infty$-$R$-algebra $A$, the canonical motivic localization functor $L_{\text{mot}}: \mathbf{Mod}_A(\mathcal{C}) \to \mathbf{Mod}_A(\mathcal{C})[W^{-1}]$ induces a natural equivalence of $\infty$-operads:
-> $$\mathbb{R}\mathbf{Hom}_{\mathbf{Alg}_{E_\infty}(\mathcal{C})}\left(\mathbf{THH}(R / S), \Omega^\infty \mathbf{TC}(A / R \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Z})\right) \simeq \lim_{\longleftarrow \Delta} \mathbf{Map}_{\text{Sch}^{\text{der}}}\left(\mathcal{X}_{\bullet}, \mathbb{B}\mathbf{GL}_n(A)^{\wedge}_p\right)$$
+> $$\begin{aligned}
+> \mathbb{R}\mathbf{Hom}_{\mathbf{Alg}_{E_\infty}(\mathcal{C})}\left(\mathbf{THH}(R / S), \Omega^\infty \mathbf{TC}(A / R \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Z})\right) \\
+> \simeq \lim_{\longleftarrow \Delta} \mathbf{Map}_{\text{Sch}^{\text{der}}}\left(\mathcal{X}_{\bullet}, \mathbb{B}\mathbf{GL}_n(A)^{\wedge}_p\right)
+> \end{aligned}$$
 > Furthermore, the filtration on the topological cyclic homology spectrum $\mathbf{TC}(A)$ descends to a degenerated motivic spectral sequence whose $E_2$-page coincides with the derived étale cohomology $H_{\text{ét}}^p\left(\mathcal{X}, \mathbf{\pi}_q^{\text{alg}}(\mathcal{S}_A)\right)$.
 >
 > **Lemma 4.13 (Motivic Homotopy Descent & Non-Connective K-Theory)**  
 > Let $\mathbf{K}(A)$ denote the non-connective algebraic K-theory spectrum of the connective $E_\infty$-ring $A$. The Cyclotomic trace map $\operatorname{trcyc}: \mathbf{K}(A) \to \mathbf{TC}(A)$ factors through the homotopy limit of the Nisnevich-local site $\mathcal{X}_{\text{Nis}}$, satisfying the hyper-descent property:
-> $$\mathbb{H}_{\text{Nis}}^\bullet\left(\mathcal{X}, \mathbf{K}^{\text{top}}\right) \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Q} \xrightarrow{\sim} \operatorname{holim}_{\Delta^{\text{op}}} \mathbf{TC}\left(A \otimes_{\mathbb{S}} \mathbb{S}[\Omega B G]\right)_{p}^{\wedge}$$
+> $$\begin{aligned}
+> \mathbb{H}_{\text{Nis}}^\bullet\left(\mathcal{X}, \mathbf{K}^{\text{top}}\right) \otimes_{\mathbb{S}} \mathbf{H}\mathbb{Q} \xrightarrow{\sim} \operatorname{holim}_{\Delta^{\text{op}}} \mathbf{TC}\left(A \otimes_{\mathbb{S}} \mathbb{S}[\Omega B G]\right)_{p}^{\wedge}
+> \end{aligned}$$
 > Where $BG$ represents the classifying stack of the absolute Galois group $\operatorname{Gal}(\bar{K}/K)$, establishing the chromatic filtration compatibility at prime $p$.
 
 这一段密密麻麻充斥着 $\infty$-操作子、$E_\infty$-环谱、拓扑循环同调（$\mathbf{TC}$）、代数 K-理论与 Nisnevich 超下降的绝高阶段落，全宇宙能够完全独立推演并看懂其每一个定义细节的人，绝对不超过百万分之几。
@@ -39,11 +44,18 @@ summary: "剖析大语言模型时代下学术同行评审的异化：当极度�
 > The probability density path $p_t = (\psi_t)_\sharp p_0$ satisfies the continuity equation on the tangent bundle:
 > $$\frac{\partial}{\partial t}p_t(x) + \operatorname{div}_g\left(p_t(x) v_t(x)\right) = 0, \quad \text{where } \operatorname{div}_g(X) = \frac{1}{\sqrt{|g|}} \partial_i \left( \sqrt{|g|} X^i \right)$$
 > For any pair $(x_0, x_1) \in \mathcal{M} \times \mathcal{M}$, let $\gamma_{x_0, x_1}: [0,1] \to \mathcal{M}$ be the unique minimizing geodesic connecting $x_0$ to $x_1$ inside the injectivity radius $\operatorname{inj}(\mathcal{M})$, given by the Riemannian exponential map $\gamma_{x_0, x_1}(t) = \exp_{x_0}\left(t \log_{x_0}(x_1)\right)$. The Riemannian Conditional Flow Matching (R-CFM) loss functional $\mathcal{L}_{\text{R-CFM}}(\theta)$ over the parameterized neural vector field $v_t(\cdot; \theta) \in \Gamma(T\mathcal{M})$ is defined as:
-> $$\mathcal{L}_{\text{R-CFM}}(\theta) = \mathbb{E}_{t \sim U(0,1)} \mathbb{E}_{(x_0, x_1) \sim q(x_0, x_1)} \left[ g_{\gamma_{x_0, x_1}(t)}\left( v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t), \; v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t) \right) \right]$$
+> $$\begin{aligned}
+> \mathcal{L}_{\text{R-CFM}}(\theta) = \mathbb{E}_{t \sim U(0,1)} \mathbb{E}_{(x_0, x_1) \sim q(x_0, x_1)} \Big[ & g_{\gamma_{x_0, x_1}(t)}\Big( v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t), \\
+> & v_t\left(\gamma_{x_0, x_1}(t); \theta\right) - \dot{\gamma}_{x_0, x_1}(t) \Big) \Big]
+> \end{aligned}$$
 > Where the target velocity vector $\dot{\gamma}_{x_0, x_1}(t) = \frac{d}{dt}\exp_{x_0}\left(t \log_{x_0}(x_1)\right) \in T_{\gamma_{x_0, x_1}(t)}\mathcal{M}$ represents the covariant intrinsic velocity field.
 >
 > **Proposition 3.9 (Covariant Vector Field Divergence & Sobolev Equivalence)**  
-> Let $\nabla_{\dot{\gamma}}$ denote the covariant derivative along the geodesic $\gamma$. Under the assumption that the Ricci curvature of $(\mathcal{M}, g)$ is bounded below by $K \in \mathbb{R}$, the marginal vector field $u_t(x) = \int_{\mathcal{M}} v_t(x \mid x_1) \frac{p_t(x \mid x_1) q_1(x_1)}{p_t(x)} \mathrm{d}\mathrm{vol}_g(x_1)$ satisfies the marginal continuity condition $\frac{\partial}{\partial t}p_t + \operatorname{div}_g(p_t u_t) = 0$. Furthermore, the gradient of the R-CFM loss $\nabla_\theta \mathcal{L}_{\text{R-CFM}}(\theta)$ coincides with the population loss gradient $\nabla_\theta \mathcal{L}_{\text{RFM}}(\theta) = \int_0^1 \int_{\mathcal{M}} \|v_t(x;\theta) - u_t(x)\|_g^2 \, p_t(x) \, \mathrm{d}\mathrm{vol}_g(x) \, \mathrm{d}t$ up to a constant independent of $\theta$, guaranteeing that the learned metric tensor induces an isometric embedding into the Hilbert-Sobolev space $W^{2,p}(T\mathcal{M})$.
+> Let $\nabla_{\dot{\gamma}}$ denote the covariant derivative along the geodesic $\gamma$. Under the assumption that the Ricci curvature of $(\mathcal{M}, g)$ is bounded below by $K \in \mathbb{R}$, the marginal vector field $u_t(x) = \int_{\mathcal{M}} v_t(x \mid x_1) \frac{p_t(x \mid x_1) q_1(x_1)}{p_t(x)} \mathrm{d}\mathrm{vol}_g(x_1)$ satisfies the marginal continuity condition $\frac{\partial}{\partial t}p_t + \operatorname{div}_g(p_t u_t) = 0$. Furthermore, the gradient of the R-CFM loss $\nabla_\theta \mathcal{L}_{\text{R-CFM}}(\theta)$ coincides with the population loss gradient:
+> $$\begin{aligned}
+> \nabla_\theta \mathcal{L}_{\text{RFM}}(\theta) = \int_0^1 \int_{\mathcal{M}} \|v_t(x;\theta) - u_t(x)\|_g^2 \, p_t(x) \, \mathrm{d}\mathrm{vol}_g(x) \, \mathrm{d}t
+> \end{aligned}$$
+> Up to a constant independent of $\theta$, guaranteeing that the learned metric tensor induces an isometric embedding into the Hilbert-Sobolev space $W^{2,p}(T\mathcal{M})$.
 
 无论是前者的 $\infty$-范畴谱序列，还是后者长达数十行的黎曼流形微分几何 Flow Matching，都构成了对人类常规认知深度的绝绝对高墙，足以让任何试图靠肉眼草稿纸硬推的审稿人瞬间偏头痛发作、太阳穴暴跳。
 
@@ -65,7 +77,10 @@ summary: "剖析大语言模型时代下学术同行评审的异化：当极度�
 >
 > **Proposition 5.6 (Dual Kantorovich-Sinkhorn Functional Convergence)**  
 > The unique existence of the non-negative potential pair $(\varphi_0, \hat{\varphi}_T) \in L^1(P_0) \times L^1(P_T)$ is guaranteed by the global contractivity of the Sinkhorn operator $\mathcal{S}: L^\infty(\mathbb{R}^d) \to L^\infty(\mathbb{R}^d)$ under the Hilbert projective metric $d_{\mathcal{H}}(f, g) = \log \sup_{x,y} \frac{f(x) g(y)}{f(y) g(x)}$. Furthermore, the dynamic relative entropy dissipation rate obeys:
-> $$\frac{\mathrm{d}}{\mathrm{d}t} \mathrm{D}_{\text{KL}}(P_t^* \| R_t) = -\frac{\sigma^2}{2} \int_{\mathbb{R}^d} \left\| \nabla \log \left( \frac{\mathrm{d}P_t^*}{\mathrm{d}R_t} \right) \right\|^2 \mathrm{d}P_t^* - \int_{\mathbb{R}^d} \operatorname{Tr}\left( \operatorname{Hess}(V) \right) \mathrm{d}P_t^* \le -C_K \mathrm{D}_{\text{KL}}(P_t^* \| R_t)$$
+> $$\begin{aligned}
+> \frac{\mathrm{d}}{\mathrm{d}t} \mathrm{D}_{\text{KL}}(P_t^* \| R_t) = & -\frac{\sigma^2}{2} \int_{\mathbb{R}^d} \left\| \nabla \log \left( \frac{\mathrm{d}P_t^*}{\mathrm{d}R_t} \right) \right\|^2 \mathrm{d}P_t^* \\
+> & - \int_{\mathbb{R}^d} \operatorname{Tr}\left( \operatorname{Hess}(V) \right) \mathrm{d}P_t^* \le -C_K \mathrm{D}_{\text{KL}}(P_t^* \| R_t)
+> \end{aligned}$$
 > Establishing global linear contraction in the 2-Wasserstein metric space $\mathcal{W}_2(\mathcal{P}(\mathbb{R}^d))$.
 
 面对这三段跨越衍生代数几何、黎曼流形 Flow Matching 与薛定谔桥偏微分方程的绝绝对高墙，全宇宙能够靠肉眼草稿纸独立演算看懂的人屈指可数，足以让任何审稿人瞬间崩溃消沉、偏头痛发作。

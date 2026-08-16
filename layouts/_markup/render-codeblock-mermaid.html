@@ -1,0 +1,6 @@
+<!-- 意图：把 Markdown 中的 mermaid 代码块转换为 Mermaid.js 可直接渲染的图表节点。 -->
+<!-- 维护原则：图表语法保持标准 fenced code block，不要求作者改写成 shortcode 或 HTML。 -->
+<pre class="mermaid">
+  {{ .Inner | htmlEscape | safeHTML }}
+</pre>
+{{ .Page.Store.Set "hasMermaid" true }}

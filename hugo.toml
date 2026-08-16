@@ -81,6 +81,15 @@ enableRobotsTXT = true
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        # 数学公式先由 Goldmark 原样透传，再交给 KaTeX；避免 Markdown 解析器误处理公式里的星号、下划线、反斜杠和全角符号。
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          # 块级公式同时支持 LaTeX 推荐的 \[...\] 和常见 Markdown 写作里的 $$...$$。
+          block = [['\[', '\]'], ['$$', '$$']]
+          # 行内公式同时支持 \(...\) 和 $...$；KaTeX 会跳过代码块，普通代码示例不会被误渲染。
+          inline = [['\(', '\)'], ['$', '$']]
     [markup.goldmark.renderer]
       # 允许文章中嵌入少量可信 HTML；写作时仍优先使用 Markdown。
       unsafe = true

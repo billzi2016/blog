@@ -114,10 +114,10 @@ $$
 \begin{aligned}
 \mathcal{L}_{\text{FCDR}}(\theta,\phi,\eta)
 = \sup_{Q \in \mathbb{B}_{\rho}^{W_2}(\widehat{P})} \mathbb{E}_{Q}\big[\ell(s_\theta(X),Y)\big]
-&+ \lambda_{\text{EO}}\sum_{y \in \{0,1\}}\sum_{a<a'}\left|\mathbb{E}\left[s_\theta(X)\mid A=a,Y=y\right]-\mathbb{E}\left[s_\theta(X)\mid A=a',Y=y\right]\right|^2 \\
+&+ \lambda_{\text{EO}}\sum_{y \in \{0,1\}}\sum_{a \lt a'}\left|\mathbb{E}\left[s_\theta(X)\mid A=a,Y=y\right]-\mathbb{E}\left[s_\theta(X)\mid A=a',Y=y\right]\right|^2 \\
 &+ \lambda_{\text{CF}}\mathbb{E}_{a,a'}\left[\left\|s_\theta(X)-s_\theta(\mathcal{T}_{a\to a'}^\pi X)\right\|_2^2\right] \\
 &+ \lambda_{\text{HSIC}}\operatorname{HSIC}_{\kappa,\nu}\left(h_\phi(X), A\right)
-+ \lambda_{\text{MMD}}\sum_{a<a'}\operatorname{MMD}_{\kappa}^2\left(P_{h_\phi(X)\mid A=a}, P_{h_\phi(X)\mid A=a'}\right) \\
++ \lambda_{\text{MMD}}\sum_{a \lt a'}\operatorname{MMD}_{\kappa}^2\left(P_{h_\phi(X)\mid A=a}, P_{h_\phi(X)\mid A=a'}\right) \\
 &+ \eta^\top\left(\mathbf{C}_{\text{cal}}(\theta)-\delta\mathbf{1}\right)
 + \frac{\beta}{2}\left\|\mathbf{C}_{\text{cal}}(\theta)-\delta\mathbf{1}\right\|_2^2 .
 \end{aligned}

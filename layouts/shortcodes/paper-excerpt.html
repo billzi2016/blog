@@ -1,0 +1,5 @@
+<!-- 意图：提供可渲染数学公式的论文摘录容器。 -->
+<!-- 关键点：原样输出内部 HTML，避免 Markdown 把公式下标解析成 emphasis。 -->
+<blockquote class="paper-excerpt">
+  {{ .Inner | safeHTML }}
+</blockquote>

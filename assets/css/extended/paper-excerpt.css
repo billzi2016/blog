@@ -1,0 +1,20 @@
+/* 意图：让复杂论文摘录保留引用块视觉，同时保护长公式不撑破正文边界。 */
+/* 关键点：公式内容允许横向滚动，容器本身不扩大页面宽度。 */
+.paper-excerpt {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 关键点：KaTeX 的块级公式通常比正文宽，单独设置滚动比强行缩小更可读。 */
+.paper-excerpt .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+
+/* 关键点：避免长英文定理标题或长符号串撑开引用块。 */
+.paper-excerpt p,
+.paper-excerpt strong {
+  overflow-wrap: anywhere;
+}

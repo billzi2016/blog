@@ -97,7 +97,53 @@ summary: "剖析大语言模型时代下学术同行评审的异化：当极度�
 > \end{aligned}$$
 > Establishing global linear contraction in the 2-Wasserstein metric space $\mathcal{W}_2(\mathcal{P}(\mathbb{R}^d))$.
 
-面对这三段跨越衍生代数几何、黎曼流形 Flow Matching 与薛定谔桥偏微分方程的绝绝对高墙，全宇宙能够靠肉眼草稿纸独立演算看懂的人屈指可数，足以让任何审稿人瞬间崩溃消沉、偏头痛发作。
+还可以再看一段更典型的算法公平性论文。它不是那种一眼胡编的东西，恰恰相反，它非常像今天能送进评审系统的标准写法：有 protected attribute，有 counterfactual graph，有 equalized odds，有 distributionally robust optimization，有 kernel independence penalty，有 Wasserstein ambiguity set，有一套看起来特别严肃、特别进步、特别 mathematically grounded 的 loss。问题是它最后很可能没有任何商业化前途，也很难真的改变部署系统里的权力关系，纯纯的学术数字自嗨；但它太像论文了，像到审稿人不敢直接说“这到底有什么用”。
+
+{{< paper-excerpt >}}
+<p><strong>Theorem 6.2 (Counterfactually Transported Equalized-Odds Calibration under Kernelized Group-Invariance Constraints)</strong></p>
+
+<p>Let $\mathcal{D} = \{(X_i, A_i, Y_i)\}_{i=1}^n$ be sampled from a structural causal model $\mathfrak{G} = (\mathcal{V}, \mathcal{E}, P_U, f)$, where $A \in \{0,1,\ldots,k\}$ denotes the protected attribute and $Y \in \{0,1\}$ is the downstream label. For a score function $s_\theta: \mathcal{X} \to [0,1]$, define the counterfactual transport operator $\mathcal{T}_{a \to a'}^\pi$ by the Monge map induced by the entropically regularized coupling $\pi_{\varepsilon}^{a,a'} \in \Pi(P_{X \mid A=a}, P_{X \mid A=a'})$:</p>
+
+$$
+\pi_{\varepsilon}^{a,a'} = \arg\min_{\pi \in \Pi(P_a,P_{a'})} \left\{ \int_{\mathcal{X}\times\mathcal{X}} c_\phi(x,x') \, \mathrm{d}\pi(x,x') + \varepsilon \mathrm{D}_{\text{KL}}\left(\pi \| P_a \otimes P_{a'}\right) \right\}
+$$
+
+<p>where $c_\phi(x,x') = \|h_\phi(x)-h_\phi(x')\|_2^2 + \lambda_c \|\operatorname{do}(A=a)x - \operatorname{do}(A=a')x'\|_{\Sigma^{-1}}^2$ is the learned counterfactual ground cost. The proposed Fairness-Calibrated Distributionally Robust Risk is:</p>
+
+$$
+\begin{aligned}
+\mathcal{L}_{\text{FCDR}}(\theta,\phi,\eta)
+= \sup_{Q \in \mathbb{B}_{\rho}^{W_2}(\widehat{P})} \mathbb{E}_{Q}\big[\ell(s_\theta(X),Y)\big]
+&+ \lambda_{\text{EO}}\sum_{y \in \{0,1\}}\sum_{a<a'}\left|\mathbb{E}\left[s_\theta(X)\mid A=a,Y=y\right]-\mathbb{E}\left[s_\theta(X)\mid A=a',Y=y\right]\right|^2 \\
+&+ \lambda_{\text{CF}}\mathbb{E}_{a,a'}\left[\left\|s_\theta(X)-s_\theta(\mathcal{T}_{a\to a'}^\pi X)\right\|_2^2\right] \\
+&+ \lambda_{\text{HSIC}}\operatorname{HSIC}_{\kappa,\nu}\left(h_\phi(X), A\right)
++ \lambda_{\text{MMD}}\sum_{a<a'}\operatorname{MMD}_{\kappa}^2\left(P_{h_\phi(X)\mid A=a}, P_{h_\phi(X)\mid A=a'}\right) \\
+&+ \eta^\top\left(\mathbf{C}_{\text{cal}}(\theta)-\delta\mathbf{1}\right)
++ \frac{\beta}{2}\left\|\mathbf{C}_{\text{cal}}(\theta)-\delta\mathbf{1}\right\|_2^2 .
+\end{aligned}
+$$
+
+<p>Here $\mathbf{C}_{\text{cal}}(\theta)$ stacks groupwise calibration gaps, equalized-odds residuals, counterfactual stability residuals, and subgroup temperature-scaling errors. Under the overlap assumption $\inf_{a,x}p(A=a\mid X=x)>\alpha$, the bounded RKHS condition $\sup_x \kappa(x,x)\le K$, and the Slater feasibility of the fairness polytope $\mathcal{F}_{\delta}$, every stationary point $(\theta^*,\phi^*,\eta^*)$ of the augmented Lagrangian satisfies:</p>
+
+$$
+\begin{aligned}
+\operatorname{Gap}_{\text{fair}}(s_{\theta^*})
+\le
+O\left(
+\sqrt{\frac{\operatorname{Rad}_n(\mathcal{H}_\theta)}{n}}
++ \rho
++ \varepsilon\log n
++ \frac{1}{\sqrt{\lambda_{\text{EO}}+\lambda_{\text{CF}}+\lambda_{\text{HSIC}}+\lambda_{\text{MMD}}}}
+\right),
+\end{aligned}
+$$
+
+<p>while preserving Bayes-risk consistency up to the Pareto frontier of the fairness-utility Lagrangian.</p>
+{{< /paper-excerpt >}}
+
+这类东西就很适合今天的学术评审系统。它看起来有数学，有伦理，有因果，有鲁棒，有核方法，有最优传输，有拉格朗日乘子，有泛化界，还有一个非常漂亮的缩写。可是你把它放到真实公司里，问题马上变得朴素得残忍：数据里 protected attribute 合不合法？业务方敢不敢用？合规部门认不认？线上 A/B test 的指标掉了谁负责？用户投诉、地区法规、模型漂移、标签偏差、历史歧视和产品目标之间的冲突，真的能靠一个 $\lambda_{\text{EO}}+\lambda_{\text{CF}}+\lambda_{\text{HSIC}}+\lambda_{\text{MMD}}$ 调出来吗？最后它很可能只是把一堆现实政治问题压缩成一个 loss，然后在表格里多报三行 fairness gap。学术上很完整，现实里很寂寞。
+
+面对这四段跨越衍生代数几何、黎曼流形 Flow Matching、薛定谔桥偏微分方程与算法公平性拉格朗日大杂烩的绝绝对高墙，全宇宙能够靠肉眼草稿纸独立演算看懂的人屈指可数，足以让任何审稿人瞬间崩溃消沉、偏头痛发作。
 
 
 
